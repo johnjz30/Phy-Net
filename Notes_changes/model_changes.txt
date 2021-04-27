@@ -1,0 +1,17 @@
+LOSS:
+Huber loss function implemented in train/loss
+
+train/compress_train:
+	commented out the old loss...add in huber
+
+model/lat_net:
+	nr_downsamples 4==>3 (we do not need to cut the resolution down to 16x16
+	
+	activation function relu==> leaky relu
+
+model/nn:
+	added leaky_relu support
+
+
+
+

@@ -40,10 +40,10 @@ tf.app.flags.DEFINE_bool('restore', True,
 ## resnet params
 tf.app.flags.DEFINE_integer('nr_residual', 2,
                            """ number of residual blocks before down sizing """)
-tf.app.flags.DEFINE_integer('nr_downsamples', 4,
+tf.app.flags.DEFINE_integer('nr_downsamples', 3,
                            """ numper of downsamples """)
-tf.app.flags.DEFINE_string('nonlinearity', "relu",
-                           """ what nonlinearity to use, leakey_relu, relu, elu, concat_elu """)
+tf.app.flags.DEFINE_string('nonlinearity', "leaky_relu",
+                           """ what nonlinearity to use, leaky_relu, relu, elu, concat_elu """)
 tf.app.flags.DEFINE_float('keep_p', 1.0,
                            """ keep probability for res blocks """)
 tf.app.flags.DEFINE_bool('gated', False,

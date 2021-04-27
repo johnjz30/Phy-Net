@@ -63,9 +63,16 @@ def train():
           all_params = tf.trainable_variables()
 
         # loss mse
+        '''
+        #this block comment is his code
         error_mse = loss_mse(state, x_2_o)
         error_gradient = loss_gradient_difference(state, x_2_o)
         error = error_mse + FLAGS.lambda_divergence * error_gradient
+        loss_gen.append(error)
+        '''
+        
+        ##add in huber loss
+        error = loss_huber(state, x_2_o, delta=4.5)
         loss_gen.append(error)
 
         # store gradients

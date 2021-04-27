@@ -20,15 +20,17 @@ def concat_elu(x):
 
 def set_nonlinearity(name):
   if name == 'concat_elu':
-    return concat_elu
+      return concat_elu
   elif name == 'elu':
-    return tf.nn.elu
+      return tf.nn.elu
   elif name == 'concat_relu':
-    return tf.nn.crelu
+      return tf.nn.crelu
   elif name == 'relu':
-    return tf.nn.relu
+      return tf.nn.relu
+  elif name == 'leaky_relu':
+      return tf.nn.leaky_relu
   else:
-    raise('nonlinearity ' + name + ' is not supported')
+      raise('nonlinearity ' + name + ' is not supported')
 
 def _activation_summary(x):
   tensor_name = x.op.name

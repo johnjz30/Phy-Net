@@ -9,6 +9,15 @@ from divergence import *
 
 FLAGS = tf.app.flags.FLAGS
 
+def loss_huber(true, generated, delta=4.5):
+    error = tf.math.abs(true - generated)
+    # generally delta =3+ 
+    masked = tf.greater(error,delta)
+    mse = tf.nn.l2_loss(error)
+    huber = delta*(error - 0.5*delta)
+    loss = tf.where(masked,huber,mse)
+    return loss
+    
 
 def loss_mse(true, generated):
   loss = tf.nn.l2_loss(true - generated)
